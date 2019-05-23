@@ -2,9 +2,14 @@
   "name": "recipe",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.4.1",
+    "node": "v10.14.1"
+  },
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0"
   },
   "scripts": {
