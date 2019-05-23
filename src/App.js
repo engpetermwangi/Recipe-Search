@@ -16,7 +16,7 @@ class App extends Component {
     e.preventDefault();
     const recipeName = e.target.elements.recipe.value;
     const from = Math.floor(Math.random() * 98);
-    const to = from + 12;
+    const to = from + 6;
     const url = `https://api.edamam.com/search?q=${recipeName}&app_id=${APP_ID}&app_key=${APP_KEY}&from=${from.toString()}&to=${to.toString()}`;
     await fetch(url)
       .then(response => response.json())
