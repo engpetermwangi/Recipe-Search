@@ -18,11 +18,16 @@ class App extends Component {
     const from = Math.floor(Math.random() * 98);
     const to = from + 6;
     const url = `https://api.edamam.com/search?q=${recipeName}&app_id=${APP_ID}&app_key=${APP_KEY}&from=${from.toString()}&to=${to.toString()}`;
-    await fetch(url)
-      .then(response => response.json())
-      .then(responseData => {
-        this.setState({ recipes: responseData.hits });
-      });
+    try {
+      let response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Request failed due to client or server error.");
+      }
+      let responseData = await response.json();
+      this.setState({ recipes: responseData.hits });
+    } catch (error) {
+      console.log("Error: ", error);
+    }
   };
 
   render() {
